@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:UBSFacil.Models"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+             x:Class="UBSFacil.View.AgendamentosPage"
+             Title="Novo Agendamento"
+             BackgroundColor="Lavender">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="Agendar Nova Consulta/Exame"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="Black"
+                   Margin="0,0,0,10" />
+
+            <Label Text="Data do Agendamento:"
+                   FontSize="16"
+                   TextColor="Black" />
+            <DatePicker x:Name="DatePickerAgendamento"
+                        BackgroundColor="White" />
+            <Label Text="Hora do Agendamento:"
+                   FontSize="16"
+                   TextColor="Black" />
+            <TimePicker x:Name="TimePickerAgendamento"
+                        Format="HH:mm"
+                        TextColor="Black"
+                        BackgroundColor="White" />
+            <Label Text="Unidade de Saúde (UBS):"
+                   FontSize="16"
+                   TextColor="Black" />
+            <Picker x:Name="PickerUBS"
+                    Title="Selecione a UBS"
+                    TextColor="Black"
+                    TitleColor="Gray"
+                    HorizontalOptions="FillAndExpand"
+                    BackgroundColor="White" />
+            <Label Text="Observações (opcional):"
+                   FontSize="16"
+                   TextColor="Black" />
+            <Editor x:Name="EditorObservacoes"
+                    Placeholder="Ex: Dor de cabeça persistente, retorno..."
+                    HeightRequest="100"
+                    CharacterSpacing="1"
+                    TextColor="Black"
+                    PlaceholderColor="LightGray"
+                    VerticalOptions="FillAndExpand"
+                    BackgroundColor="White" />
+            <Button Text="Confirmar Agendamento"
+                    Clicked="OnConfirmarAgendamentoClicked"
+                    HorizontalOptions="FillAndExpand"
+                    BackgroundColor="#7B68EE" TextColor="White"
+                    CornerRadius="10"
+                    Margin="0,20,0,0" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

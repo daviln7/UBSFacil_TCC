@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="UBSFacil.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:localview="clr-namespace:UBSFacil.View" Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False">
+
+    <ShellContent
+        Title="Bem-Vindo" 
+        ContentTemplate="{DataTemplate localview:MainPage}"
+        Route="MainPage" />
+
+    <ShellContent
+        Title="Login"
+        ContentTemplate="{DataTemplate localview:LoginPage}"
+        Route="LoginPage"
+        IsVisible="False" />
+
+    <ShellContent
+        Title="Cadastro"
+        ContentTemplate="{DataTemplate localview:CadastroPage}"
+        Route="CadastroPage"
+        IsVisible="False" />
+
+    <ShellContent
+        Title="Principal"
+        ContentTemplate="{DataTemplate localview:HomePage}"
+        Route="HomePage"
+        IsVisible="False" />
+</Shell>

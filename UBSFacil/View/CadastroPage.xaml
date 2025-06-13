@@ -1,0 +1,109 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UBSFacil.View.CadastroPage"
+             BackgroundColor="Lavender"
+             Shell.NavBarIsVisible="False"
+             Title="CadastroPage">
+    <ScrollView>
+        <VerticalStackLayout VerticalOptions="Center" Spacing="25" Padding="30">
+
+            <Label Text="Seja Bem-Vindo (a)!" FontSize="28"
+                   TextColor="DarkGray" HorizontalTextAlignment="Center" FontAttributes="Bold" />
+
+            <Label Text="Faça seu cadastro:" FontSize="20"
+                   TextColor="DarkGray" 
+                   HorizontalTextAlignment="Center" />
+
+            <Frame HasShadow="True" CornerRadius="75"
+                   HeightRequest="150" WidthRequest="150"
+                   HorizontalOptions="Center" VerticalOptions="Center"
+                   BackgroundColor="LightBlue" 
+                   BorderColor="Transparent" Padding="0">
+                <Grid>
+                    <Image Source="usuario.png" Aspect="AspectFit" HeightRequest="100" WidthRequest="100"
+                           HorizontalOptions="Center" 
+                           VerticalOptions="Center"/>
+                    <Button Text="&#x270E;" FontSize="20" BackgroundColor="DarkGray"
+                            TextColor="White"
+                            HeightRequest="40" WidthRequest="40" CornerRadius="20"
+                            HorizontalOptions="End" VerticalOptions="End"
+                            Margin="5" Padding="0"/>
+                </Grid>
+            </Frame>
+
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Nome Completo" TextColor="LightGray" FontSize="16"/>
+                <Frame HasShadow="True" Padding="0" 
+                       BorderColor="White" HeightRequest="45"
+                       HorizontalOptions="FillAndExpand"
+                       BackgroundColor="White" CornerRadius="8">
+                    <Grid ColumnDefinitions="*, Auto">
+                        <Entry x:Name="txt_nome_completo" PlaceholderColor="DarkGray"
+                               VerticalOptions="Center" 
+                               Placeholder="Nome Completo" TextColor="DarkGray"/>
+                        <Button Grid.Column="1" Text="X" BackgroundColor="Transparent"
+                                TextColor="DarkGray"
+                                WidthRequest="40" HeightRequest="40" 
+                                CornerRadius="20" HorizontalOptions="End" VerticalOptions="Center"/>
+                    </Grid>
+                </Frame>
+
+                <Label Text="E-mail" TextColor="LightGray" FontSize="16"/>
+                <Frame HasShadow="True" Padding="0"
+                       BorderColor="White" HeightRequest="45"
+                       HorizontalOptions="FillAndExpand" 
+                       BackgroundColor="White" CornerRadius="8">
+                    <Grid ColumnDefinitions="*, Auto">
+                        <Entry x:Name="txt_email" PlaceholderColor="DarkGray"
+                               VerticalOptions="Center" 
+                               Placeholder="seuemaila@gmail.com" Keyboard="Email" 
+                               TextColor="DarkGray"/>
+                        <Button Grid.Column="1" Text="X" 
+                                BackgroundColor="Transparent" TextColor="DarkGray"
+                                WidthRequest="40" HeightRequest="40" 
+                                CornerRadius="20" HorizontalOptions="End"
+                                VerticalOptions="Center"/>
+                    </Grid>
+                </Frame>
+
+                <Label Text="Telefone" TextColor="LightGray" FontSize="16"/>
+                <Frame HasShadow="True" Padding="0" 
+                       BorderColor="White" HeightRequest="45"
+                       HorizontalOptions="FillAndExpand" 
+                       BackgroundColor="White" CornerRadius="8">
+                    <Grid ColumnDefinitions="*, Auto">
+                        <Entry x:Name="txt_telefone" PlaceholderColor="DarkGray"
+                               VerticalOptions="Center" Placeholder="+55 11 999999999"
+                               Keyboard="Telephone" TextColor="DarkGray"/>
+                        <Button Grid.Column="1" Text="X" BackgroundColor="Transparent" 
+                                TextColor="DarkGray"
+                                WidthRequest="40" HeightRequest="40" 
+                                CornerRadius="20" HorizontalOptions="End" VerticalOptions="Center"/>
+                    </Grid>
+                </Frame>
+
+                <Label Text="Senha" TextColor="LightGray" FontSize="16"/>
+                <Frame HasShadow="True" Padding="0" BorderColor="White"
+                       HeightRequest="45" HorizontalOptions="FillAndExpand"
+                       BackgroundColor="White" CornerRadius="8">
+                    <Grid ColumnDefinitions="*, Auto">
+                        <Entry x:Name="txt_senha_cadastro" VerticalOptions="Center" 
+                               PlaceholderColor="DarkGray"
+                               Placeholder="123456ABC*" IsPassword="True"
+                               TextColor="DarkGray"/>
+                        <Button Grid.Column="1" Text="X" 
+                                BackgroundColor="Transparent" TextColor="DarkGray"
+                                WidthRequest="40" HeightRequest="40" 
+                                CornerRadius="20" HorizontalOptions="End" VerticalOptions="Center"/>
+                    </Grid>
+                </Frame>
+
+                <Button Text="Cadastrar"
+                        WidthRequest="200" HeightRequest="50" CornerRadius="25"
+                        HorizontalOptions="Center"
+                        BackgroundColor="#7B68EE" TextColor="White" Margin="0,20,0,0"
+                        Clicked="OnCadastrarButtonClicked"/>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+    </ContentPage>

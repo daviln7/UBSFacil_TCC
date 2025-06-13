@@ -1,0 +1,67 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UBSFacil.View.LoginPage"
+             BackgroundColor="Lavender"
+             Shell.NavBarIsVisible="False"
+             Title="LoginPage">
+    <ScrollView>
+        <VerticalStackLayout VerticalOptions="Center" Spacing="25" Padding="30">
+
+            <Label Text="BEM-VINDO (A) DE VOLTA!" FontSize="28"
+                   TextColor="DarkGray" 
+                   HorizontalTextAlignment="Center" 
+                   FontAttributes="Bold" />
+
+            <VerticalStackLayout Spacing="10">
+                <Label Text="E-mail de Acesso" 
+                       TextColor="LightGray" FontSize="16"/>
+                <Frame HasShadow="True" Padding="0"
+                       BorderColor="White" HeightRequest="45"
+                       HorizontalOptions="FillAndExpand" 
+                       BackgroundColor="White" CornerRadius="8">
+                    <Grid ColumnDefinitions="*, Auto">
+                        <Entry x:Name="txt_usuario" PlaceholderColor="DarkGray"
+                               VerticalOptions="Center" 
+                               Placeholder="seuemail@gmail.com" 
+                               Keyboard="Email" TextColor="DarkGray"/>
+                        <Button Grid.Column="1" Text="X" 
+                                BackgroundColor="Transparent" TextColor="DarkGray"
+                                WidthRequest="40" HeightRequest="40" CornerRadius="20" 
+                                HorizontalOptions="End" VerticalOptions="Center"/>
+                    </Grid>
+                </Frame>
+
+                <Label Text="Senha" TextColor="LightGray" FontSize="16"/>
+                <Frame HasShadow="True" 
+                       Padding="0" BorderColor="White"
+                       HeightRequest="45" 
+                       HorizontalOptions="FillAndExpand" 
+                       BackgroundColor="White" CornerRadius="8">
+                    <Grid ColumnDefinitions="*, Auto">
+                        <Entry x:Name="txt_senha" VerticalOptions="Center" 
+                               PlaceholderColor="DarkGray"
+                               Placeholder="123456ABC*" IsPassword="True" 
+                               TextColor="DarkGray"/>
+                        <Button Grid.Column="1" Text="X" BackgroundColor="Transparent" 
+                                TextColor="DarkGray"
+                                WidthRequest="40" HeightRequest="40" 
+                                CornerRadius="20" HorizontalOptions="End" VerticalOptions="Center"/>
+                    </Grid>
+                </Frame>
+
+                <Button Text="Esqueceu sua senha?"
+                        BackgroundColor="Transparent"
+                        TextColor="Purple"
+                        HorizontalOptions="End"
+                        Padding="0"
+                        Margin="0, -5, 0, 10"
+                        />
+                <Button Text="Entrar" 
+                        WidthRequest="200" HeightRequest="50" CornerRadius="25"
+                        HorizontalOptions="Center"
+                        BackgroundColor="#7B68EE" TextColor="White" Margin="0,20,0,0"
+                        Clicked="OnLoginButtonClicked"/>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

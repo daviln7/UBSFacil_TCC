@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="Lavender"
+             Shell.NavBarIsVisible="False"
+             x:Class="UBSFacil.View.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout VerticalOptions="Center" Spacing="25" Padding="30">
+
+            <Image Source="logotipo.png" HeightRequest="150"
+                   WidthRequest="150" HorizontalOptions="Center"/>
+
+            <VerticalStackLayout>
+                <Label Text="Seja Bem Vindo ao Saúde Fácil" FontSize="28"
+                       TextColor="Black" HorizontalTextAlignment="Center" />
+
+                <Label Text="Entrar na sua conta" FontSize="20"
+                       TextColor="black" HorizontalTextAlignment="Center" />
+
+                <Button Text="Entrar" Clicked="Button_Clicked"
+                        WidthRequest="120" CornerRadius="25"
+                        HorizontalOptions="Center"
+                        BackgroundColor="#7B68EE" />
+
+                <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
+                    <Label Text="Não tem cadastro?" TextColor="Gray" />
+                </StackLayout>
+                <Button Text="Cadastrar" Clicked="Button_Clicked_1"
+                     WidthRequest="120" CornerRadius="25"
+                     HorizontalOptions="Center"
+                     BackgroundColor="#7B68EE" />
+
+
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+           
+
+
