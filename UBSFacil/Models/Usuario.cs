@@ -20,8 +20,6 @@ namespace UBSFacil.Models
         [MaxLength(250)]
         public string Senha { get; set; } = string.Empty;
 
-        // ❌ NÃO incluir a propriedade Agendamentos aqui
-        // O relacionamento será feito via UsuarioId na tabela Agendamento
     }
 }
 

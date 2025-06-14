@@ -1,5 +1,4 @@
-﻿// View/CadastroPage.xaml.cs
-using UBSFacil.Models;
+﻿using UBSFacil.Models;
 using UBSFacil.Services;
 
 namespace UBSFacil.View
@@ -8,10 +7,10 @@ namespace UBSFacil.View
     {
         private readonly DatabaseService _databaseService;
 
-        public CadastroPage() // Construtor SEM parâmetros
+        public CadastroPage() 
         {
             InitializeComponent();
-            _databaseService = DatabaseService.Instance; // Usando o Singleton
+            _databaseService = DatabaseService.Instance; 
         }
 
         private async void OnCadastrarButtonClicked(object sender, EventArgs e)
@@ -24,14 +23,13 @@ namespace UBSFacil.View
                 await DisplayAlert("Campos Vazios", "Por favor, preencha todos os campos.", "OK");
                 return;
             }
-            // Você poderia adicionar um campo "Confirmar Senha" no XAML e verificar aqui se as senhas coincidem.
 
             var novoUsuario = new Usuario
             {
                 NomeCompleto = txt_nome_completo.Text,
                 Email = txt_email.Text,
                 Telefone = txt_telefone.Text,
-                Senha = txt_senha_cadastro.Text // 🚨 Lembre-se do HASHING DE SENHA AQUI!
+                Senha = txt_senha_cadastro.Text 
             };
 
             bool sucesso = await _databaseService.RegisterUserAsync(novoUsuario);
@@ -40,13 +38,11 @@ namespace UBSFacil.View
             {
                 await DisplayAlert("Cadastro Realizado", "Sua conta foi criada com sucesso! Faça o login.", "OK");
 
-                // Opcional: Limpar campos
                 txt_nome_completo.Text = string.Empty;
                 txt_email.Text = string.Empty;
                 txt_telefone.Text = string.Empty;
                 txt_senha_cadastro.Text = string.Empty;
 
-                // Tenta remover a página de cadastro da pilha antes de ir para o login
                 if (Navigation.NavigationStack.Count > 1 && Navigation.NavigationStack[Navigation.NavigationStack.Count - 1] == this)
                 {
                     Navigation.RemovePage(this);

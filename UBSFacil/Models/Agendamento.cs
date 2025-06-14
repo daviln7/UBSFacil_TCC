@@ -9,7 +9,7 @@ namespace UBSFacil.Models
         public int Id { get; set; }
 
         [Indexed]
-        public int UsuarioId { get; set; } // Referência ao usuário que fez o agendamento
+        public int UsuarioId { get; set; } 
 
         public DateTime DataAgendamento { get; set; }
 

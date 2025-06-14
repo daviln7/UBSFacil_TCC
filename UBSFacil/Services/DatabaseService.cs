@@ -1,5 +1,4 @@
-﻿// Services/DatabaseService.cs (Versão Final e Corrigida)
-using SQLite;
+﻿using SQLite;
 using System;
 using System.IO;
 using System.Linq;
@@ -70,13 +69,6 @@ namespace UBSFacil.Services
                 await _database.InsertAllAsync(ubsList);
             }
         }
-
-        // --- MÉTODOS DE USUÁRIO ---
-
-        /// <summary>
-        /// Registra um novo usuário no banco de dados.
-        /// </summary>
-        /// <returns>Retorna 'true' se o registro for bem-sucedido, 'false' se o e-mail já existir.</returns>
         public async Task<bool> RegisterUserAsync(Usuario usuario)
         {
             await InitializeAsync();
@@ -88,56 +80,35 @@ namespace UBSFacil.Services
                                              .FirstOrDefaultAsync();
 
             if (existingUser != null)
-                return false; // E-mail já cadastrado
+                return false; 
 
-            usuario.Email = emailNormalizado; // Normaliza antes de salvar
+            usuario.Email = emailNormalizado; 
             int rows = await _database.InsertAsync(usuario);
             return rows > 0;
         }
 
-        /// <summary>
-        /// Verifica as credenciais de login de um usuário.
-        /// </summary>
-        /// <returns>Retorna o objeto 'Usuario' se as credenciais forem válidas, ou 'null' caso contrário.</returns>
         public async Task<Usuario> LoginUserAsync(string email, string senha)
         {
             await InitializeAsync();
 
             var emailNormalizado = email.Trim().ToLower();
 
-            // Em produção, validar hash de senha!
             return await _database.Table<Usuario>()
                                   .Where(u => u.Email.ToLower() == emailNormalizado && u.Senha == senha)
                                   .FirstOrDefaultAsync();
         }
 
-        // --- MÉTODOS DE USUÁRIO (NOVOS PARA DADOS CADASTRAIS) ---
-
-        /// <summary>
-        /// Obtém um usuário pelo seu ID.
-        /// </summary>
-        /// <param name="userId">O ID do usuário.</param>
-        /// <returns>O objeto Usuario correspondente ou null se não encontrado.</returns>
         public async Task<Usuario> GetUserByIdAsync(int userId)
         {
             await InitializeAsync();
             return await _database.Table<Usuario>().Where(u => u.Id == userId).FirstOrDefaultAsync();
         }
-
-        /// <summary>
-        /// Atualiza as informações de um usuário existente no banco de dados.
-        /// </summary>
-        /// <param name="usuario">O objeto Usuario com os dados a serem atualizados (o Id deve corresponder a um usuário existente).</param>
-        /// <returns>Retorna o número de linhas afetadas (1 se a atualização foi bem-sucedida, 0 caso contrário).</returns>
         public async Task<int> UpdateUserAsync(Usuario usuario)
         {
             await InitializeAsync();
-            // A normalização do e-mail é importante, mas aqui só atualizamos.
-            // A validação de e-mail único já foi feita no registro, mas considere uma validação na atualização se o e-mail mudar.
+
             return await _database.UpdateAsync(usuario);
         }
-
-        // --- MÉTODOS DE FAVORITOS ---
 
         public async Task<bool> IsUnitFavoriteAsync(int usuarioId, int unidadeId)
         {
@@ -186,8 +157,6 @@ namespace UBSFacil.Services
                                   .Where(u => favoriteIds.Contains(u.Id))
                                   .ToListAsync();
         }
-
-        // --- MÉTODOS DE AGENDAMENTOS ---
 
         public async Task<List<Agendamento>> GetAppointmentsAsync(int usuarioId)
         {

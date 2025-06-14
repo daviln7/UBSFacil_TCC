@@ -1,5 +1,4 @@
-﻿// Models/UnidadeSaude.cs
-using SQLite;
+﻿using SQLite;
 namespace UBSFacil.Models
 {
     [Table("UnidadesSaude")]

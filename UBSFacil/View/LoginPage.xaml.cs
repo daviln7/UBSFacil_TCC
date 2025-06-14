@@ -1,5 +1,4 @@
-﻿// View/LoginPage.xaml.cs
-using UBSFacil.Models;
+﻿using UBSFacil.Models;
 using UBSFacil.Services;
 using UBSFacil.View;
 
@@ -28,7 +27,7 @@ namespace UBSFacil.View
 
             if (usuario != null)
             {
-                // ✅ Colocando a HomePage dentro de uma NavigationPage
+
                 Application.Current.MainPage = new NavigationPage(new HomePage(usuario));
             }
             else
